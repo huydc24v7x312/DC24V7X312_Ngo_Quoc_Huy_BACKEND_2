@@ -56,7 +56,13 @@ class ContactService {
 			{ $set: update },
 			{ returnDocument: "after" }
 		);
-		return result.value; //return result;
+		// console.log("== UPDATE CHECK ==");
+		// console.log("filter:", filter);
+		// console.log("update:", update);
+		// console.log("result:", result);
+		 // ✅ Kiểm tra cả hai trường hợp (cũ và mới)
+		return result.value || result; 
+		//return result.value; //return result;
 	}
 	
 	async delete(id) {
